@@ -11,6 +11,10 @@ public static class MoneyResource
     {
         moneyAmount += amount;        
     }
+    public static void SubstractMoneyAmount(int amount)
+    {
+        moneyAmount -= amount;
+    }
 
     public static int GetMoneyAmount()
     {
@@ -47,6 +51,10 @@ public class Resources : MonoBehaviour
         if(MoneyResource.GetMoneyAmount()>1000)
         {
             moneyImg.sprite = moneySprites[2];
+        }
+        if(MoneyResource.GetMoneyAmount()>1100)
+        {
+            MoneyResource.SubstractMoneyAmount(600);
         }
     }
 
