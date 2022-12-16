@@ -48,7 +48,8 @@ public class MoneyUI : MonoBehaviour
     void DisplayMoney(int money)
     {
         float mon = money;
-        if(money>999) moneyDisplay.text = "$ " + (mon/1000).ToString("F1") + "K";
+        if(money>999 && money<=9999) moneyDisplay.text = "$ " + (mon/1000).ToString("F1") + "K";
+        else if(money>9999) moneyDisplay.text = "$ " + (mon/1000).ToString("F0") + "K";
         else moneyDisplay.text = "$ " + money;
     }
 }
