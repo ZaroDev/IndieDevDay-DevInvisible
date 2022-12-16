@@ -142,4 +142,10 @@ public class TimeManager : GameSystem
         hours = 0;
         mins = 0;
     }
+
+    public int GetHours()
+    {
+        
+        return hours;
+    }
 }
