@@ -8,7 +8,10 @@ public class PlantSO : ScriptableObject
     public string Name;
     public int Cost;
     public int DaysToGrow;
+    public int DaysToDry;
+    public PlantDropSO drop;
     public int MinDrop;
     public int MaxDrop;
     public bool Permanent;
+    public GameObject Prefab;
 }

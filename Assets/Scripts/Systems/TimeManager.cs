@@ -4,6 +4,7 @@ using System;
 
 public class TimeManager : GameSystem
 {
+    public static TimeManager instance;
     public Volume ppv; // this is the post processing volume
 
     public float tick; // Increasing the tick, increases second rate
@@ -20,6 +21,21 @@ public class TimeManager : GameSystem
     //Events 
     public static Action<int, int> OnTimeChange;
     public static Action<int> OnDayChange;
+
+    public int WakeUpHour = 7;
+    public int WakeUpMin = 0;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     public void Start()
@@ -113,7 +129,13 @@ public class TimeManager : GameSystem
             }
         }
     }
-
+    public void Sleep()
+    {
+        days++;
+        StaminaController.RestoreStamina();
+        hours = WakeUpHour;
+        mins = WakeUpMin;
+    }
     public override void Restart()
     {
         days = 1;

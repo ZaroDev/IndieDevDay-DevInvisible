@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class PlantManager : GameSystem
 {
-    public List<PlantSO> plants = new List<PlantSO>();
+    public List<Plant> plants = new List<Plant>();
 
+    private void OnEnable()
+    {
+        TimeManager.OnDayChange += GrowPlants;
+    }
+    private void OnDisable()
+    {
+        TimeManager.OnDayChange -= GrowPlants;
+    }
+    public void GrowPlants(int day)
+    {
+        foreach (Plant plant in plants)
+        {
+            plant.Grow();
+        }
+    }
 }

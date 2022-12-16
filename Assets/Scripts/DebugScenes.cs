@@ -34,5 +34,10 @@ public class DebugScenes : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        //Sleep to the next day
+        else if (Input.GetKeyDown(KeyCode.F3))
+        {
+            TimeManager.instance.Sleep();
+        }
     }
 }

@@ -1,23 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StaminaController : MonoBehaviour
 {
-    public float maxStamina = 100f;
-    float stamina;
+    public static float MaxStamina = 100f;
+    static float stamina;
+
+    public static Action<float> OnStaminaUse;
+    public static Action<float> OnStaminaRestore;
     void Start()
     {
-        stamina = maxStamina;
+        stamina = MaxStamina;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Use(float amount)
     {
-
+        stamina -= amount;
+        Mathf.Clamp(stamina, 0, MaxStamina);
+        OnStaminaUse?.Invoke(stamina);
     }
-    public void RestoreStamina()
+    public static void RestoreStamina()
     {
-        stamina = maxStamina;
+        stamina = MaxStamina;
+        OnStaminaRestore?.Invoke(stamina);
     }
 }

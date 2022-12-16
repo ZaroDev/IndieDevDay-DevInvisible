@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Test
   Cost: 10
-  DaysToGrow: 2
+  DaysToGrow: 4
+  DaysToDry: 1
+  drop: {fileID: 0}
   MinDrop: 1
   MaxDrop: 3
   Permanent: 1
+  Prefab: {fileID: 0}
