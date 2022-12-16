@@ -23,7 +23,7 @@ public class MoneyUI : MonoBehaviour
         {
             moneyImg.sprite = moneySprites[0];
         }
-
+        
     }
 
     void FixedUpdate()
@@ -39,14 +39,16 @@ public class MoneyUI : MonoBehaviour
         {
             moneyImg.sprite = moneySprites[2];
         }
-        if (MoneyManager.GetMoneyAmount() > 1100)
-        {
-            MoneyManager.SubstractMoneyAmount(600);
-        }
+        // if (MoneyManager.GetMoneyAmount() > 1100)
+        // {
+        //     MoneyManager.SubstractMoneyAmount(600);
+        // }
     }
 
     void DisplayMoney(int money)
     {
-        moneyDisplay.text = "$ " + money;
+        float mon = money;
+        if(money>999) moneyDisplay.text = "$ " + (mon/1000).ToString("F1") + "K";
+        else moneyDisplay.text = "$ " + money;
     }
 }
