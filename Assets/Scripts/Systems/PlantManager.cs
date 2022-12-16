@@ -2,17 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantManager : MonoBehaviour
+public class PlantManager : GameSystem
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<PlantSO> plants = new List<PlantSO>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

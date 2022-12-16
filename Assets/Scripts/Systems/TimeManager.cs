@@ -1,38 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-using TMPro; // using text mesh for the clock display
-
 using UnityEngine.Rendering; // used to access the volume component
+using System;
 
-public class DayNightScript : MonoBehaviour
+public class TimeManager : GameSystem
 {
-    public TextMeshProUGUI timeDisplay; // Display Time
-    public TextMeshProUGUI dayDisplay; // Display Day
     public Volume ppv; // this is the post processing volume
 
     public float tick; // Increasing the tick, increases second rate
     public float seconds;
     public int mins;
+    int prevMins;
     public int hours;
+    int prevHours;
     public int days = 1;
-
+    int prevDays;
     public bool activateLights; // checks if lights are on
     public GameObject[] lights; // all the lights we want on when its dark
-    public SpriteRenderer[] stars; // star sprites 
+    public SpriteRenderer[] stars; // star sprites
+    //Events 
+    public static Action<int, int> OnTimeChange;
+    public static Action<int> OnDayChange;
+
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         ppv = gameObject.GetComponent<Volume>();
     }
 
     // Update is called once per frame
-    void FixedUpdate() // we used fixed update, since update is frame dependant. 
+    public void FixedUpdate() // we used fixed update, since update is frame dependant. 
     {
         CalcTime();
-        DisplayTime();
-
     }
 
     public void CalcTime() // Used to calculate sec, min and hours
@@ -57,6 +55,17 @@ public class DayNightScript : MonoBehaviour
             days += 1;
         }
         ControlPPV(); // changes post processing volume after calculation
+
+        //Events trigger
+
+        if (prevMins != mins || prevHours != hours)
+            OnTimeChange?.Invoke(hours, mins);
+        if (prevDays != days)
+            OnDayChange?.Invoke(days);
+
+        prevDays = days;
+        prevHours = hours;
+        prevMins = mins;
     }
 
     public void ControlPPV() // used to adjust the post processing slider.
@@ -105,9 +114,10 @@ public class DayNightScript : MonoBehaviour
         }
     }
 
-    public void DisplayTime() // Shows time and day in ui
+    public override void Restart()
     {
-        timeDisplay.text = string.Format("{0:00}:{1:00}", hours, mins); // The formatting ensures that there will always be 0's in empty spaces
-        dayDisplay.text = "Day: " + days; // display day counter
+        days = 1;
+        hours = 0;
+        mins = 0;
     }
 }
