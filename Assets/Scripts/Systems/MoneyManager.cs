@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MoneyManager : GameSystem
 {
-    private static int moneyAmount = 9000;
+    private static int moneyAmount;
     public static Action<int> OnMoneyAdd;
     public static Action<int> OnMoneySubstract;
 
