@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
+    private Animator animator;
     public float moveSpeed = 5f;
     Vector2 input;
     Rigidbody2D rb;
@@ -11,12 +12,14 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         HandleInput();
+        animator.SetFloat("Horizontal", Mathf.Abs(input.x));
     }
     void HandleInput()
     {
