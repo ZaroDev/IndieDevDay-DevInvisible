@@ -19,6 +19,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleInput();
+        if (input.x >= 0)
+            gameObject.transform.localScale = new Vector3(1, 1, 1);
+
+
+        if (input.x < 0) gameObject.transform.localScale = new Vector3(-1, 1, 1);
         animator.SetFloat("Horizontal", Mathf.Abs(input.x));
     }
     void HandleInput()
@@ -34,11 +39,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "EnterRestaurant")
+        if (collision.tag == "EnterRestaurant")
         {
             SceneManager.LoadScene("Restaurant");
         }
-        else if(collision.tag == "LeaveRestaurant")
+        else if (collision.tag == "LeaveRestaurant")
         {
             SceneManager.LoadScene("Street");
         }
