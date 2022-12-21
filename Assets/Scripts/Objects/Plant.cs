@@ -1,62 +1,100 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Inventory.Model;
 using UnityEngine;
-public enum PlantStatus
+using Random = UnityEngine.Random;
+
+public enum PlantState
 {
     Seed = 0,
-    MidGrow,
+    Mid,
     Grown,
+    Harvestable,
     Dry
 }
+
 public class Plant : MonoBehaviour
 {
-    public PlantSO PlantRef;
-    public int Days = 0;
-    public int DaysUnWatered = 0;
-    public PlantStatus Status = 0;
-    public bool Watered = false;
+    [field: SerializeField]
+    public PlantSO PlantData { get; private set; }
+    [field: SerializeField]
+    private Animator Animator;
+    [field: SerializeField]
+    private PlantState State;
+    public int DaysToGrow { get; private set; }
+    public int DaysToDry { get; private set; }
+    public int DaysToHarvest { get; private set; }
+    public bool Watered { get; set; } = false;
     void Start()
     {
-
-    }
-    public void Harvest()
-    {
-        if (PlantRef.Permanent)
-        {
-            Days = 0;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Animator = GetComponent<Animator>();
+        DaysToDry = PlantData.DaysToDry;
+        DaysToGrow = PlantData.DaysToGrow;
+        DaysToHarvest = PlantData.DaysToHarvest;
     }
     public void Grow()
     {
         if (!Watered)
         {
-            DaysUnWatered++;
-            Status = PlantStatus.Dry;
-            if (DaysUnWatered >= PlantRef.DaysToDry)
-            {
+            DaysToDry--;
+            if (DaysToDry < 0)
                 Destroy(gameObject);
-            }
+
+            State = PlantState.Dry;
             return;
         }
+        DaysToHarvest--;
+        DaysToGrow--;
 
+        int grownPercent = DaysToGrow / PlantData.DaysToGrow;
+        if (DaysToGrow == 1)
+            State = PlantState.Seed;
+        else if (DaysToGrow == 0.5f)
+            State = PlantState.Mid;
 
-        Days++;
-        float statusPerCent = Days / PlantRef.DaysToGrow;
-        if (statusPerCent >= 0f && statusPerCent < 0.3f)
+        if (DaysToGrow <= 0)
+            State = PlantState.Grown;
+        if (DaysToHarvest <= 0)
+            State = PlantState.Harvestable;
+
+        UpdateAnim();
+
+        Watered = false;
+    }
+    public void Harvest()
+    {
+        if (State != PlantState.Harvestable)
+            return;
+        int dropCount = Random.Range(PlantData.MinDrop, PlantData.MaxDrop + 1);
+        for (int i = 0; i < dropCount; i++)
         {
-            Status = PlantStatus.Seed;
+            Instantiate(PlantData.Drop, transform.position, Quaternion.identity, transform);
         }
-        else if (statusPerCent >= 0.3f && statusPerCent < 1f)
+        State = PlantState.Grown;
+        UpdateAnim();
+    }
+    void UpdateAnim()
+    {
+        string animName = "";
+        switch (State)
         {
-            Status = PlantStatus.MidGrow;
+            case PlantState.Seed:
+                animName = "PlantSeed";
+                break;
+            case PlantState.Mid:
+                animName = "PlantMid";
+                break;
+            case PlantState.Grown:
+                animName = "PlantGrown";
+                break;
+            case PlantState.Harvestable:
+                animName = "PlantHarvestable";
+                break;
+            case PlantState.Dry:
+                animName = "PlantDry";
+                break;
         }
-        else if (statusPerCent >= 1f)
-        {
-            Status = PlantStatus.Grown;
-        }
+        Animator.Play(animName);
     }
 }

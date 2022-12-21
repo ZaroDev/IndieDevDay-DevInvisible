@@ -9,23 +9,28 @@ public class DayStateUI : MonoBehaviour
     public TimeManager timeMange;
 
     public Sprite[] ndSprite;
-    
-    
+
+    void OnEnable()
+    {
+        TimeManager.OnTimeChange += UpdateState;
+    }
+    void OnDisable()
+    {
+        TimeManager.OnTimeChange -= UpdateState;
+    }
     void Start()
     {
         if (ndSprite != null)
         {
             ndImage.sprite = ndSprite[0];
         }
-        
-
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void UpdateState(int hours, int mins)
     {
-        
-        if(timeMange.GetHours() >= 6 && timeMange.GetHours() < 21)
+
+        if (hours >= 6 && hours < 21)
         {
             ndImage.sprite = ndSprite[0];
         }

@@ -21,6 +21,7 @@ public class TimeManager : GameSystem
     //Events 
     public static Action<int, int> OnTimeChange;
     public static Action<int> OnDayChange;
+    public static Action OnPlantGrow;
 
     public int WakeUpHour = 7;
     public int WakeUpMin = 0;
@@ -48,7 +49,7 @@ public class TimeManager : GameSystem
     {
         CalcTime();
     }
-
+    bool hasChangedDay = true;
     public void CalcTime() // Used to calculate sec, min and hours
     {
         seconds += Time.fixedDeltaTime * tick; // multiply time between fixed update by tick
@@ -77,7 +78,17 @@ public class TimeManager : GameSystem
         if (prevMins != mins || prevHours != hours)
             OnTimeChange?.Invoke(hours, mins);
         if (prevDays != days)
+        {
             OnDayChange?.Invoke(days);
+            hasChangedDay = true;
+        }
+
+        if (hours == 7 && mins == 10 && hasChangedDay)
+        {
+            OnPlantGrow?.Invoke();
+            hasChangedDay = false;
+        }
+
 
         prevDays = days;
         prevHours = hours;
@@ -145,7 +156,6 @@ public class TimeManager : GameSystem
 
     public int GetHours()
     {
-        
         return hours;
     }
 }

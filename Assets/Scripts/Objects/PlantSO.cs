@@ -1,17 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[CreateAssetMenu(menuName = "Objects/Plant")]
-public class PlantSO : ScriptableObject
+namespace Inventory.Model
 {
-    public string Name;
-    public int Cost;
-    public int DaysToGrow;
-    public int DaysToDry;
-    public PlantDropSO drop;
-    public int MinDrop;
-    public int MaxDrop;
-    public bool Permanent;
-    public GameObject Prefab;
+    [CreateAssetMenu(menuName = "Objects/Plant")]
+    public class PlantSO : ScriptableObject
+    {
+        [field: SerializeField]
+        public string Name { get; private set; }
+        [field: SerializeField]
+        public int DaysToGrow { get; private set; }
+        [field: SerializeField]
+        public int DaysToHarvest { get; private set; }
+        [field: SerializeField]
+        public int DaysToDry { get; private set; }
+        [field: SerializeField]
+        public GameObject Drop { get; private set; }
+        [field: SerializeField]
+        public int MinDrop { get; private set; }
+        [field: SerializeField]
+        public int MaxDrop { get; private set; }
+        [field: SerializeField]
+        public bool Permanent { get; private set; }
+        [field: SerializeField]
+        public GameObject Prefab { get; private set; }
+    }
 }

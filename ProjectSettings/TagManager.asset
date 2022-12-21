@@ -13,7 +13,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Interactable
   - 
   - 
   - 
@@ -51,4 +51,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 450699435
+    locked: 0
+  - name: UI
+    uniqueID: 2592542555
     locked: 0
