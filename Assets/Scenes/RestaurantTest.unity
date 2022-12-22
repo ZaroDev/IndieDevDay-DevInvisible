@@ -489,19 +489,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5303275709518469575, guid: 4afa44ff4e156a24da278260a427695c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5303275709518469575, guid: 4afa44ff4e156a24da278260a427695c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5303275709518469575, guid: 4afa44ff4e156a24da278260a427695c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 42.4209
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5303275709518469575, guid: 4afa44ff4e156a24da278260a427695c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -44.3319
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6268107214884388372, guid: 4afa44ff4e156a24da278260a427695c, type: 3}
       propertyPath: m_Name
@@ -3059,5 +3059,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 7892307304042388181, guid: e268b2793d642604da10b7080fafd895, type: 3}
+      propertyPath: <InventoryItem>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 99858ca691dcc874fa1291bfbb151680, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e268b2793d642604da10b7080fafd895, type: 3}

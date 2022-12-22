@@ -2502,7 +2502,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282764250}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -3710,11 +3710,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b9cac287dc1b84a99f05fbca1e2415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlantRef: {fileID: 11400000, guid: dd32652a10719e947b322904220c5e21, type: 2}
-  Days: 0
-  DaysUnWatered: 0
-  Status: 0
-  Watered: 1
 --- !u!4 &742999603
 Transform:
   m_ObjectHideFlags: 0
@@ -4041,8 +4036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148dc7096b6157743858ae55db299576, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plants:
-  - {fileID: 742999602}
 --- !u!1 &1053371757
 GameObject:
   m_ObjectHideFlags: 0
