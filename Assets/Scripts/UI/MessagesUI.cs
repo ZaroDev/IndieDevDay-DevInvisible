@@ -6,6 +6,8 @@ public class MessagesUI : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject MessageMenu;
+    
+
 
     private bool toggleMessageMenu;
 
@@ -27,6 +29,9 @@ public class MessagesUI : MonoBehaviour
             MessageMenu.SetActive(true);
         }
     }
+
+
+    
 
     
 }
