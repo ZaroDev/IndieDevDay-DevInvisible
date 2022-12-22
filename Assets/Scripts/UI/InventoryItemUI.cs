@@ -83,5 +83,9 @@ namespace Inventory.UI
         public void OnDrag(PointerEventData eventData)
         {
         }
+        public virtual void Use()
+        {
+            
+        }
     }
 }

@@ -17,6 +17,6 @@ MonoBehaviour:
   <MaxStackSize>k__BackingField: 99
   <Name>k__BackingField: Test Seed
   <Description>k__BackingField: This seed is a test
-  <ItemImage>k__BackingField: {fileID: 0}
+  <ItemImage>k__BackingField: {fileID: -425581584, guid: d7bfe001ba1ee6b439d8114e6cc809d3, type: 3}
   modifierData: []
-  <Plant>k__BackingField: {fileID: 0}
+  <Plant>k__BackingField: {fileID: 11400000, guid: e6da045165dc94845be194dda4412eb8, type: 2}

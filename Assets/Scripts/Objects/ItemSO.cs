@@ -26,5 +26,7 @@ namespace Inventory.Model
         public string Description { get; set; }
         [field: SerializeField]
         public Sprite ItemImage { get; set; }
+        [field: SerializeField]
+        public GameObject prefab { get; private set; }
     }
 }

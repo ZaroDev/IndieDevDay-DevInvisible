@@ -6,7 +6,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [field: SerializeField]
-    public ItemSO InventoryItem { get; private set; }
+    public ItemSO InventoryItem { get; set; }
     [field: SerializeField]
     public int Quantity { get; set; } = 1;
     [SerializeField]
@@ -25,7 +25,7 @@ public class Item : MonoBehaviour
     }
     private IEnumerator AnimateItemPickUp()
     {
-        //audioSource.Play();
+        audioSource.Play();
         Vector3 startScale = transform.localScale;
         Vector3 endScale = Vector3.zero;
 
