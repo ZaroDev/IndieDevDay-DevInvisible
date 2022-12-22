@@ -12,7 +12,7 @@ namespace Inventory
         [SerializeField]
         private InventoryUI inventoryUI;
         [SerializeField]
-        private InventorySO inventoryData;
+        public InventorySO inventoryData;
         public List<InventoryItem> initialItems = new List<InventoryItem>();
         public InventoryItem currentItem;
         public int currentIndex = 0;

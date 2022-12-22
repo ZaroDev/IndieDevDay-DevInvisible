@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class EquipableItemSO : MonoBehaviour
+namespace Inventory.Model
 {
-    // Start is called before the first frame update
-    void Start()
+    [CreateAssetMenu(menuName = "Objects/Equip")]
+    public class EquipableItemSO : ItemSO, IItemAction
     {
-        
-    }
+        public string ActionName => "Use";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public AudioClip ActionSFX { get; private set; }
+
+        public bool PerformAction(GameObject plant)
+        {
+            return true;
+        }
     }
 }

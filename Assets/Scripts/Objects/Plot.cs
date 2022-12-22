@@ -38,23 +38,32 @@ public class Plot : MonoBehaviour, IInteractable
 
     public bool Interact(InventoryItem inventoryItem)
     {
+        bool ret = true;
         ItemSO item = inventoryItem.item;
         switch (item.ItemType)
         {
             case ItemType.None: break;
             case ItemType.Seed:
                 {
+                    if (plant != null)
+                    {
+                        ret = false;
+                        break;
+                    }
+
                     SeedItemSO seed = item as SeedItemSO;
-                    var go = Instantiate(seed.Plant.Prefab, Vector3.zero, Quaternion.identity, transform);
+                    var go = Instantiate(seed.Plant.Prefab, transform.position, Quaternion.identity, transform);
                     plant = go.GetComponent<Plant>();
+                    plant.PlantData = seed.Plant;
+
                 }
                 break;
             case ItemType.WateringCan:
                 {
-
+                    Watered = true;
                 }
                 break;
         }
-        return true;
+        return ret;
     }
 }

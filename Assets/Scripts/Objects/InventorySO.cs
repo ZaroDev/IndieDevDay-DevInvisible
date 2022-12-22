@@ -146,6 +146,27 @@ namespace Inventory.Model
                 InformAboutChange();
             }
         }
+        public void UseItem(int itemIndex)
+        {
+            if (inventoryItems[itemIndex].item.IsStackable)
+                RemoveItem(itemIndex, 1);
+            else
+                UseEquipableItem(itemIndex, 1);
+        }
+        public void UseEquipableItem(int itemIndex, int amount)
+        {
+            if (inventoryItems.Count > itemIndex)
+            {
+                if (inventoryItems[itemIndex].IsEmpty)
+                    return;
+                int reminder = inventoryItems[itemIndex].quantity - amount;
+                if (reminder <= 0)
+                    reminder = 0;
+                inventoryItems[itemIndex] = inventoryItems[itemIndex].ChangeQuantity(reminder);
+                InformAboutChange();
+            }
+        }
+
     }
 
     [Serializable]
@@ -168,5 +189,7 @@ namespace Inventory.Model
              item = null,
              quantity = 0,
          };
+
+
     }
 }

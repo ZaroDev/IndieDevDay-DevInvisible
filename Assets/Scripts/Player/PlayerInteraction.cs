@@ -7,11 +7,12 @@ public class PlayerInteraction : MonoBehaviour
 {
     public Camera Cam;
     public LayerMask Interactable;
-    public InventoryController inventory;
+    public InventoryController Inventory;
+    public float InteractionDistance = 1f;
     void Awake()
     {
         Cam = Camera.main;
-        inventory = GetComponent<InventoryController>();
+        Inventory = GetComponent<InventoryController>();
     }
     void Update()
     {
@@ -21,18 +22,15 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            var point = Cam.ScreenPointToRay(Input.mousePosition).GetPoint(1);
-            Ray2D ray = new Ray2D(gameObject.transform.position, point);
-            Debug.DrawRay(ray.origin, ray.direction, Color.green);
-
-            RaycastHit2D hit = Physics2D.Raycast(gameObject.transform.position, point, 2f, Interactable);
+            RaycastHit2D hit = Physics2D.Raycast(Cam.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, InteractionDistance, Interactable);
             if (hit.collider)
             {
-                Debug.Log($"Interaction with {hit.collider.gameObject.name}");
+                if (Vector2.Distance(transform.position, hit.collider.gameObject.transform.position) > InteractionDistance)
+                    return;
                 IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
-                if (interactable.Interact(inventory.currentItem))
+                if (interactable.Interact(Inventory.currentItem))
                 {
-
+                    Inventory.inventoryData.UseItem(Inventory.currentIndex);
                 }
             }
         }

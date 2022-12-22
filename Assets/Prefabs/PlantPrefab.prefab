@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6618322644672324079}
   - component: {fileID: 6618322644672324078}
   - component: {fileID: 8673200405809988812}
-  - component: {fileID: 6531482229673393534}
   m_Layer: 0
   m_Name: PlantPrefab
   m_TagString: Untagged
@@ -47,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlantData>k__BackingField: {fileID: 11400000, guid: 065fb8991d8db414aa50dfeecaea4970, type: 2}
-  Animator: {fileID: 0}
+  Sprite: {fileID: 0}
   State: 0
 --- !u!212 &8673200405809988812
 SpriteRenderer:
@@ -98,26 +97,6 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &6531482229673393534
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6618322644672324077}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 709f1d1dc076d8c4a8e6f33a3b9b42fb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

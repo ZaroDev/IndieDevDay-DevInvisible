@@ -24,5 +24,15 @@ namespace Inventory.Model
         public bool Permanent { get; private set; }
         [field: SerializeField]
         public GameObject Prefab { get; private set; }
+        [field: SerializeField]
+        public Sprite DrySprite { get; private set; }
+        [field: SerializeField]
+        public Sprite SeedSprite { get; private set; }
+        [field: SerializeField]
+        public Sprite MidSprite { get; private set; }
+        [field: SerializeField]
+        public Sprite GrownSprite { get; private set; }
+        [field: SerializeField]
+        public Sprite HarvestableSprite { get; private set; }
     }
 }

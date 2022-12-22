@@ -17,9 +17,9 @@ public enum PlantState
 public class Plant : MonoBehaviour
 {
     [field: SerializeField]
-    public PlantSO PlantData { get; private set; }
+    public PlantSO PlantData { get; set; }
     [field: SerializeField]
-    private Animator Animator;
+    private SpriteRenderer Sprite;
     [field: SerializeField]
     private PlantState State;
     public int DaysToGrow { get; private set; }
@@ -28,10 +28,11 @@ public class Plant : MonoBehaviour
     public bool Watered { get; set; } = false;
     void Start()
     {
-        Animator = GetComponent<Animator>();
+        Sprite = GetComponent<SpriteRenderer>();
         DaysToDry = PlantData.DaysToDry;
         DaysToGrow = PlantData.DaysToGrow;
         DaysToHarvest = PlantData.DaysToHarvest;
+        UpdateAnim();
     }
     public void Grow()
     {
@@ -42,6 +43,7 @@ public class Plant : MonoBehaviour
                 Destroy(gameObject);
 
             State = PlantState.Dry;
+            UpdateAnim();
             return;
         }
         DaysToHarvest--;
@@ -80,25 +82,35 @@ public class Plant : MonoBehaviour
     }
     void UpdateAnim()
     {
-        string animName = "";
+
         switch (State)
         {
             case PlantState.Seed:
-                animName = "PlantSeed";
+                {
+                    Sprite.sprite = PlantData.SeedSprite;
+                }
                 break;
             case PlantState.Mid:
-                animName = "PlantMid";
+                {
+                    Sprite.sprite = PlantData.MidSprite;
+                }
                 break;
             case PlantState.Grown:
-                animName = "PlantGrown";
+                {
+                    Sprite.sprite = PlantData.GrownSprite;
+                }
                 break;
             case PlantState.Harvestable:
-                animName = "PlantHarvestable";
+                {
+                    Sprite.sprite = PlantData.HarvestableSprite;
+                }
                 break;
             case PlantState.Dry:
-                animName = "PlantDry";
+                {
+                    Sprite.sprite = PlantData.DrySprite;
+                }
                 break;
         }
-        Animator.Play(animName);
+
     }
 }
