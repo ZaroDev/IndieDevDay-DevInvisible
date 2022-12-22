@@ -15,10 +15,37 @@ namespace Inventory
         private InventorySO inventoryData;
         public List<InventoryItem> initialItems = new List<InventoryItem>();
         public InventoryItem currentItem;
+        public int currentIndex = 0;
         public void Start()
         {
             PrepareUI();
             PrepareInventoryData();
+            currentItem = inventoryData.GetItemAt(currentIndex);
+        }
+
+        private void CheckInput()
+        {
+            if (Input.mouseScrollDelta.y < -0.1f)
+            {
+                currentIndex++;
+                if (currentIndex > 3)
+                {
+                    currentIndex = 0;
+                }
+                currentItem = inventoryData.GetItemAt(currentIndex);
+                inventoryUI.ResetHotbar();
+            }
+            else if (Input.mouseScrollDelta.y > 0.1f)
+            {
+                currentIndex--;
+                if (currentIndex < 0)
+                {
+                    currentIndex = 3;
+                }
+                currentItem = inventoryData.GetItemAt(currentIndex);
+                inventoryUI.ResetHotbar();
+            }
+            inventoryUI.UIItems[currentIndex].Select();
         }
 
         private void PrepareInventoryData()
@@ -118,6 +145,7 @@ namespace Inventory
                     inventoryUI.Hide();
                 }
             }
+            CheckInput();
         }
     }
 

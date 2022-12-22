@@ -10,6 +10,7 @@ public class PlayerInteraction : MonoBehaviour
     public InventoryController inventory;
     void Awake()
     {
+        Cam = Camera.main;
         inventory = GetComponent<InventoryController>();
     }
     void Update()

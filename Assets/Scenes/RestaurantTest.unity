@@ -1727,6 +1727,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8352257512952291676, guid: d4ddb653002ed4a4697f135f853dab6a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8352257512952291676, guid: d4ddb653002ed4a4697f135f853dab6a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8352257512952291676, guid: d4ddb653002ed4a4697f135f853dab6a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8352257512952291676, guid: d4ddb653002ed4a4697f135f853dab6a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8352257513615299789, guid: d4ddb653002ed4a4697f135f853dab6a, type: 3}
       propertyPath: m_Name
       value: Canvas

@@ -17,7 +17,7 @@ namespace Inventory.UI
         private InventoryDescriptionUI itemDescription;
         [SerializeField]
         private MouseFollower mouseFollower;
-        List<InventoryItemUI> UIItems = new List<InventoryItemUI>();
+        public List<InventoryItemUI> UIItems = new List<InventoryItemUI>();
         private int currentlyDraggedIndex = -1;
 
         public event Action<int> OnDescriptionRequested, OnItemActionRequested, OnStartDragging;
@@ -119,7 +119,13 @@ namespace Inventory.UI
             itemDescription.ResetDescription();
             DeselectAllItems();
         }
-
+        public void ResetHotbar()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                UIItems[i].Deselect();
+            }
+        }
         public void DeselectAllItems()
         {
             foreach (InventoryItemUI item in UIItems)
