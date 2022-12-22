@@ -11,6 +11,9 @@ namespace Inventory.UI
         [SerializeField]
         private RectTransform contentPanel;
         [SerializeField]
+        private RectTransform hotbarPanel;
+
+        [SerializeField]
         private InventoryDescriptionUI itemDescription;
         [SerializeField]
         private MouseFollower mouseFollower;
@@ -31,7 +34,10 @@ namespace Inventory.UI
             for (int i = 0; i < inventorySize; i++)
             {
                 InventoryItemUI uiItem = Instantiate(itemPrefab, Vector3.zero, Quaternion.identity);
-                uiItem.transform.SetParent(contentPanel);
+                if (i < 4)
+                    uiItem.transform.SetParent(hotbarPanel);
+                else
+                    uiItem.transform.SetParent(contentPanel);
                 uiItem.transform.localScale = new Vector3(1f, 1f, 1f);
                 UIItems.Add(uiItem);
                 uiItem.OnItemClicked += HandleItemSelection;
@@ -40,6 +46,7 @@ namespace Inventory.UI
                 uiItem.OnItemEndDrag += HandleEndDrag;
                 uiItem.OnRightMouseBtnClick += HandleShowItemAction;
             }
+
         }
         public void UpdateData(int itemIndex, Sprite itemImage, int itemQuantity)
         {

@@ -67,9 +67,13 @@ public class Plant : MonoBehaviour
         if (State != PlantState.Harvestable)
             return;
         int dropCount = Random.Range(PlantData.MinDrop, PlantData.MaxDrop + 1);
+
         for (int i = 0; i < dropCount; i++)
         {
-            Instantiate(PlantData.Drop, transform.position, Quaternion.identity, transform);
+            var go = Instantiate(PlantData.Drop.prefab, transform.position, Quaternion.identity);
+            Item item = go.GetComponent<Item>();
+            item.Quantity = 1;
+            item.InventoryItem = PlantData.Drop;
         }
         State = PlantState.Grown;
         UpdateAnim();

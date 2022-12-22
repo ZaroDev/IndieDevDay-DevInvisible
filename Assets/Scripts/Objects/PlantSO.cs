@@ -15,7 +15,7 @@ namespace Inventory.Model
         [field: SerializeField]
         public int DaysToDry { get; private set; }
         [field: SerializeField]
-        public GameObject Drop { get; private set; }
+        public ItemSO Drop { get; private set; }
         [field: SerializeField]
         public int MinDrop { get; private set; }
         [field: SerializeField]
