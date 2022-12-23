@@ -46,11 +46,17 @@ TagManager:
   - name: Background
     uniqueID: 2413784181
     locked: 0
+  - name: Plant
+    uniqueID: 2853560245
+    locked: 0
   - name: Player
     uniqueID: 2787884479
     locked: 0
   - name: Foreground
     uniqueID: 450699435
+    locked: 0
+  - name: Item
+    uniqueID: 3472674909
     locked: 0
   - name: UI
     uniqueID: 2592542555

@@ -8,7 +8,8 @@ namespace Inventory.Model
     {
         None,
         Seed,
-        WateringCan
+        WateringCan,
+        Sickle
     }
     public abstract class ItemSO : ScriptableObject
     {
@@ -20,6 +21,8 @@ namespace Inventory.Model
         [field: SerializeField]
         public int MaxStackSize { get; set; } = 1;
         [field: SerializeField]
+        public int Uses { get; set; } = 0;
+        [field: SerializeField]
         public string Name { get; set; }
         [field: SerializeField]
         [field: TextArea]
@@ -27,6 +30,6 @@ namespace Inventory.Model
         [field: SerializeField]
         public Sprite ItemImage { get; set; }
         [field: SerializeField]
-        public GameObject prefab { get; private set; }
+        public GameObject ItemPrefab { get; private set; }
     }
 }

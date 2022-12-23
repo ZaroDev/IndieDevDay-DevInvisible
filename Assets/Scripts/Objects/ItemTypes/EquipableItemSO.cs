@@ -7,7 +7,7 @@ namespace Inventory.Model
     public class EquipableItemSO : ItemSO, IItemAction
     {
         public string ActionName => "Use";
-
+        [field: SerializeField]
         public AudioClip ActionSFX { get; private set; }
 
         public bool PerformAction(GameObject plant)

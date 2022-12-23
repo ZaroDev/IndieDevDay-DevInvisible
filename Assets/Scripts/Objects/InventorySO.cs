@@ -24,31 +24,29 @@ namespace Inventory.Model
                 inventoryItems.Add(InventoryItem.GetEmptyItem());
             }
         }
-        public int AddItem(ItemSO item, int quantity)
+        public int AddItem(ItemSO item, int quantity, int uses)
         {
             if (!item.IsStackable)
             {
-                for (int i = 0; i < inventoryItems.Count; i++)
+                while (quantity > 0 && !IsInventoryFull())
                 {
-                    while (quantity > 0 && !IsInventoryFull())
-                    {
-                        quantity -= AddItemToFirstFreeSlot(item, 1);
-                    }
-                    InformAboutChange();
-                    return quantity;
+                    quantity -= AddItemToFirstFreeSlot(item, 1, uses);
                 }
+                InformAboutChange();
+                return quantity;
             }
-            quantity = AddStackableItem(item, quantity);
+            quantity = AddStackableItem(item, quantity, uses);
             InformAboutChange();
             return quantity;
         }
 
-        private int AddItemToFirstFreeSlot(ItemSO item, int quantity)
+        private int AddItemToFirstFreeSlot(ItemSO item, int quantity, int uses)
         {
             InventoryItem newItem = new InventoryItem
             {
                 item = item,
-                quantity = quantity
+                quantity = quantity,
+                uses = uses,
             };
             for (int i = 0; i < inventoryItems.Count; i++)
             {
@@ -63,7 +61,7 @@ namespace Inventory.Model
 
         private bool IsInventoryFull() => inventoryItems.Where(item => item.IsEmpty).Any() == false;
 
-        private int AddStackableItem(ItemSO item, int quantity)
+        private int AddStackableItem(ItemSO item, int quantity, int uses)
         {
             for (int i = 0; i < inventoryItems.Count; i++)
             {
@@ -92,7 +90,7 @@ namespace Inventory.Model
             {
                 int newQuantity = Mathf.Clamp(quantity, 0, item.MaxStackSize);
                 quantity -= newQuantity;
-                AddItemToFirstFreeSlot(item, newQuantity);
+                AddItemToFirstFreeSlot(item, newQuantity, uses);
             }
             return quantity;
         }
@@ -116,7 +114,7 @@ namespace Inventory.Model
 
         public void AddItem(InventoryItem item)
         {
-            AddItem(item.item, item.quantity);
+            AddItem(item.item, item.quantity, item.item.Uses);
         }
 
         public void SwapItems(int itemIndex1, int itemIndex2)
@@ -148,6 +146,7 @@ namespace Inventory.Model
         }
         public void UseItem(int itemIndex)
         {
+            InventoryItem item = inventoryItems[itemIndex];
             if (inventoryItems[itemIndex].item.IsStackable)
                 RemoveItem(itemIndex, 1);
             else
@@ -159,10 +158,10 @@ namespace Inventory.Model
             {
                 if (inventoryItems[itemIndex].IsEmpty)
                     return;
-                int reminder = inventoryItems[itemIndex].quantity - amount;
+                int reminder = inventoryItems[itemIndex].uses - amount;
                 if (reminder <= 0)
                     reminder = 0;
-                inventoryItems[itemIndex] = inventoryItems[itemIndex].ChangeQuantity(reminder);
+                inventoryItems[itemIndex] = inventoryItems[itemIndex].Use(reminder);
                 InformAboutChange();
             }
         }
@@ -173,14 +172,25 @@ namespace Inventory.Model
     public struct InventoryItem
     {
         public int quantity;
+        public int uses;
         public ItemSO item;
         public bool IsEmpty => item == null;
+        public InventoryItem Use(int usesQuantity)
+        {
+            return new InventoryItem
+            {
+                item = this.item,
+                quantity = this.quantity,
+                uses = usesQuantity,
+            };
+        }
         public InventoryItem ChangeQuantity(int newQuantity)
         {
             return new InventoryItem
             {
                 item = this.item,
                 quantity = newQuantity,
+                uses = this.uses,
             };
         }
         public static InventoryItem GetEmptyItem()
@@ -188,6 +198,7 @@ namespace Inventory.Model
          {
              item = null,
              quantity = 0,
+             uses = 0,
          };
 
 

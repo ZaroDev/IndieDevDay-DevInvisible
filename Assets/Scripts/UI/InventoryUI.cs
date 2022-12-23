@@ -48,11 +48,11 @@ namespace Inventory.UI
             }
 
         }
-        public void UpdateData(int itemIndex, Sprite itemImage, int itemQuantity)
+        public void UpdateData(int itemIndex, Sprite itemImage, int itemQuantity, int itemUses)
         {
             if (UIItems.Count > itemIndex)
             {
-                UIItems[itemIndex].SetData(itemImage, itemQuantity);
+                UIItems[itemIndex].SetData(itemImage, itemQuantity, itemUses);
             }
         }
         private void HandleShowItemAction(InventoryItemUI inventoryItemUI)
@@ -95,10 +95,10 @@ namespace Inventory.UI
             HandleItemSelection(inventoryItemUI);
             OnStartDragging?.Invoke(index);
         }
-        public void CreateDraggedItem(Sprite sprite, int quantity)
+        public void CreateDraggedItem(Sprite sprite, int quantity, int itemUses)
         {
             mouseFollower.Toggle(true);
-            mouseFollower.SetData(sprite, quantity);
+            mouseFollower.SetData(sprite, quantity, itemUses);
         }
         private void HandleItemSelection(InventoryItemUI inventoryItemUI)
         {
