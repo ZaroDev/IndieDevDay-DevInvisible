@@ -46,6 +46,9 @@ TagManager:
   - name: Background
     uniqueID: 2413784181
     locked: 0
+  - name: Plot
+    uniqueID: 1336261921
+    locked: 0
   - name: Plant
     uniqueID: 2853560245
     locked: 0

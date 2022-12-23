@@ -3,19 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StaminaController : MonoBehaviour
+public class StaminaController : GameSystem
 {
+    [SerializeField]
     public static float MaxStamina = 100f;
     static float stamina;
 
     public static Action<float> OnStaminaUse;
     public static Action<float> OnStaminaRestore;
-    void Start()
+    public override void StartSystem()
     {
         stamina = MaxStamina;
     }
-
-    public void Use(float amount)
+    public static void Use(float amount)
     {
         stamina -= amount;
         Mathf.Clamp(stamina, 0, MaxStamina);

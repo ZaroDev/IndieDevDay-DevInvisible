@@ -32,6 +32,7 @@ public class PlayerInteraction : MonoBehaviour
                 IInteractable interactable = hit.collider.gameObject.GetComponent<IInteractable>();
                 if (interactable.Interact(Inventory.currentItem))
                 {
+                    StaminaController.Use(10f);
                     Inventory.inventoryData.UseItem(Inventory.currentIndex);
                 }
             }

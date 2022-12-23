@@ -98,26 +98,31 @@ public class Plant : MonoBehaviour
             case PlantState.Seed:
                 {
                     Sprite.sprite = PlantData.SeedSprite;
+                    transform.localPosition = new Vector3(0f, 0f, 0f);
                 }
                 break;
             case PlantState.Mid:
                 {
                     Sprite.sprite = PlantData.MidSprite;
+                    transform.localPosition = new Vector3(0f, 0.5f, 0f);
                 }
                 break;
             case PlantState.Grown:
                 {
                     Sprite.sprite = PlantData.GrownSprite;
+                    transform.localPosition = new Vector3(0f, 0.5f, 0f);
                 }
                 break;
             case PlantState.Harvestable:
                 {
                     Sprite.sprite = PlantData.HarvestableSprite;
+                    transform.localPosition = new Vector3(0f, 0.5f, 0f);
                 }
                 break;
             case PlantState.Dry:
                 {
                     Sprite.sprite = PlantData.DrySprite;
+                    transform.localPosition = new Vector3(0f, 0.5f, 0f);
                 }
                 break;
         }

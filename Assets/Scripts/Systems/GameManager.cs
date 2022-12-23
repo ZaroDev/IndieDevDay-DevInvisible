@@ -22,6 +22,13 @@ public class GameManager : MonoBehaviour
             systems.Add(child);
         }
     }
+    void Start()
+    {
+        foreach (GameSystem child in systems)
+        {
+            child.StartSystem();
+        }
+    }
 
     public void Restart()
     {
