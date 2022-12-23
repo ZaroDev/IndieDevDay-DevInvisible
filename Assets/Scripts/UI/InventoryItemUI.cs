@@ -37,11 +37,15 @@ namespace Inventory.UI
             isEmpty = true;
 
         }
-        public void SetData(Sprite sprite, int quantity)
+        public void SetData(Sprite sprite, int quantity, int itemUses)
         {
             itemImage.gameObject.SetActive(true);
             itemImage.sprite = sprite;
             quantityTxt.text = quantity.ToString();
+            if (itemUses > 0)
+            {
+                quantityTxt.text = itemUses.ToString();
+            }
             isEmpty = false;
         }
         public void Select()
@@ -85,7 +89,7 @@ namespace Inventory.UI
         }
         public virtual void Use()
         {
-            
+
         }
     }
 }

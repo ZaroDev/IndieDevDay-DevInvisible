@@ -9,6 +9,8 @@ namespace Inventory.Model
     {
         [field: SerializeField]
         public PlantSO Plant { get; private set; }
-        
+        [field: SerializeField]
+        public GameObject PlantPrefab { get; private set; }
+
     }
 }

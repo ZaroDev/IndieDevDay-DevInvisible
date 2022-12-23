@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e065beb7817682a44ac96e1a93d0122b, type: 3}
+  m_Name: Magic mushrooms
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: TestPlant
+  <DaysToGrow>k__BackingField: 3
+  <DaysToHarvest>k__BackingField: 1
+  <DaysToDry>k__BackingField: 2
+  <Drop>k__BackingField: {fileID: 11400000, guid: 5e13e9b9a8c841b4da047213213f9b9e, type: 2}
+  <MinDrop>k__BackingField: 1
+  <MaxDrop>k__BackingField: 3
+  <Permanent>k__BackingField: 0
+  <Prefab>k__BackingField: {fileID: 6618322644672324077, guid: b9289944af85a944082f5b06915a8b9f, type: 3}
+  <DrySprite>k__BackingField: {fileID: -358346662, guid: 3f04e26cb8a0be8469c3dcbe1c9080de, type: 3}
+  <SeedSprite>k__BackingField: {fileID: -1571578520, guid: 3f04e26cb8a0be8469c3dcbe1c9080de, type: 3}
+  <MidSprite>k__BackingField: {fileID: 1212307959, guid: 3f04e26cb8a0be8469c3dcbe1c9080de, type: 3}
+  <GrownSprite>k__BackingField: {fileID: -1468230903, guid: 3f04e26cb8a0be8469c3dcbe1c9080de, type: 3}
+  <HarvestableSprite>k__BackingField: {fileID: -1468230903, guid: 3f04e26cb8a0be8469c3dcbe1c9080de, type: 3}

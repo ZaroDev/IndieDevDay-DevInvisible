@@ -46,17 +46,20 @@ public class Plant : MonoBehaviour
             UpdateAnim();
             return;
         }
-        DaysToHarvest--;
         DaysToGrow--;
 
+
         int grownPercent = DaysToGrow / PlantData.DaysToGrow;
-        if (DaysToGrow == 1)
+        if (grownPercent == 1)
             State = PlantState.Seed;
-        else if (DaysToGrow == 0.5f)
+        else if (grownPercent <= 0.5f)
             State = PlantState.Mid;
 
         if (DaysToGrow <= 0)
+        {
+            DaysToHarvest--;
             State = PlantState.Grown;
+        }
         if (DaysToHarvest <= 0)
             State = PlantState.Harvestable;
 
@@ -64,21 +67,28 @@ public class Plant : MonoBehaviour
 
         Watered = false;
     }
-    public void Harvest()
+    public bool Harvest()
     {
         if (State != PlantState.Harvestable)
-            return;
+            return true;
         int dropCount = Random.Range(PlantData.MinDrop, PlantData.MaxDrop + 1);
 
         for (int i = 0; i < dropCount; i++)
         {
-            var go = Instantiate(PlantData.Drop.prefab, transform.position, Quaternion.identity);
+            var go = Instantiate(PlantData.Drop.ItemPrefab, transform.position, Quaternion.identity);
             Item item = go.GetComponent<Item>();
             item.Quantity = 1;
             item.InventoryItem = PlantData.Drop;
         }
+        if (!PlantData.Permanent)
+        {
+            Destroy(gameObject);
+            return false;
+        }
+        DaysToHarvest = PlantData.DaysToHarvest;
         State = PlantState.Grown;
         UpdateAnim();
+        return true;
     }
     void UpdateAnim()
     {
@@ -88,26 +98,31 @@ public class Plant : MonoBehaviour
             case PlantState.Seed:
                 {
                     Sprite.sprite = PlantData.SeedSprite;
+                    transform.localPosition = new Vector3(0f, 0f, 0f);
                 }
                 break;
             case PlantState.Mid:
                 {
                     Sprite.sprite = PlantData.MidSprite;
+                    transform.localPosition = new Vector3(0f, 0.5f, 0f);
                 }
                 break;
             case PlantState.Grown:
                 {
                     Sprite.sprite = PlantData.GrownSprite;
+                    transform.localPosition = new Vector3(0f, 0.5f, 0f);
                 }
                 break;
             case PlantState.Harvestable:
                 {
                     Sprite.sprite = PlantData.HarvestableSprite;
+                    transform.localPosition = new Vector3(0f, 0.5f, 0f);
                 }
                 break;
             case PlantState.Dry:
                 {
                     Sprite.sprite = PlantData.DrySprite;
+                    transform.localPosition = new Vector3(0f, 0.5f, 0f);
                 }
                 break;
         }

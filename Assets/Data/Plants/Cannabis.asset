@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Cannabis
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Cannabis
-  <DaysToGrow>k__BackingField: 1
-  <DaysToHarvest>k__BackingField: 2
+  <DaysToGrow>k__BackingField: 3
+  <DaysToHarvest>k__BackingField: 1
   <DaysToDry>k__BackingField: 2
-  <Drop>k__BackingField: {fileID: 0}
+  <Drop>k__BackingField: {fileID: 11400000, guid: d37a02be2cee04e42a6396724e894742, type: 2}
   <MinDrop>k__BackingField: 1
   <MaxDrop>k__BackingField: 5
   <Permanent>k__BackingField: 1

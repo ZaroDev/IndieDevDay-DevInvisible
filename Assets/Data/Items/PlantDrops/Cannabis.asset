@@ -9,15 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 049a5adc217a7be4aa660704bda79f70, type: 3}
-  m_Name: TestSeed
+  m_Script: {fileID: 11500000, guid: 9117e5c2d1c9051449553e5359449098, type: 3}
+  m_Name: Cannabis
   m_EditorClassIdentifier: 
-  <ItemType>k__BackingField: 1
+  <ItemType>k__BackingField: 0
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 99
-  <Name>k__BackingField: Test Seed
-  <Description>k__BackingField: This seed is a test
+  <Name>k__BackingField: Cannabis flower
+  <Description>k__BackingField: 
   <ItemImage>k__BackingField: {fileID: -425581584, guid: d7bfe001ba1ee6b439d8114e6cc809d3, type: 3}
-  <prefab>k__BackingField: {fileID: 7892307304042388180, guid: e268b2793d642604da10b7080fafd895, type: 3}
+  <ItemPrefab>k__BackingField: {fileID: 7892307304042388180, guid: e268b2793d642604da10b7080fafd895, type: 3}
   modifierData: []
-  <Plant>k__BackingField: {fileID: 11400000, guid: e6da045165dc94845be194dda4412eb8, type: 2}

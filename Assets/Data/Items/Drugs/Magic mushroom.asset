@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4231fbec1a762864aa733ad026fe4820, type: 3}
-  m_Name: Test
+  m_Script: {fileID: 11500000, guid: a41f03461af3ea74b92acc94e32426bd, type: 3}
+  m_Name: Magic mushroom
   m_EditorClassIdentifier: 
   <ItemType>k__BackingField: 0
   <IsStackable>k__BackingField: 1
   <MaxStackSize>k__BackingField: 99
-  <Name>k__BackingField: Test
-  <Description>k__BackingField: This is a test
-  <ItemImage>k__BackingField: {fileID: 1959078800, guid: 02830e59eab9fe64e903c2c3e25a3fb0, type: 3}
+  <Name>k__BackingField: Magic mushroom
+  <Description>k__BackingField: 
+  <ItemImage>k__BackingField: {fileID: -1217277754, guid: d7bfe001ba1ee6b439d8114e6cc809d3, type: 3}
+  <ItemPrefab>k__BackingField: {fileID: 7892307304042388180, guid: e268b2793d642604da10b7080fafd895, type: 3}
   modifierData: []
+  <Price>k__BackingField: 0

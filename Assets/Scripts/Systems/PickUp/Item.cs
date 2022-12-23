@@ -9,6 +9,8 @@ public class Item : MonoBehaviour
     public ItemSO InventoryItem { get; set; }
     [field: SerializeField]
     public int Quantity { get; set; } = 1;
+    [field: SerializeField]
+    public int Uses { get; set; } = 0;
     [SerializeField]
     private AudioSource audioSource;
     [SerializeField]

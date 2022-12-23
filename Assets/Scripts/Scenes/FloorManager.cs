@@ -21,8 +21,6 @@ public class FloorManager : MonoBehaviour
 
     void SwitchFloor()
     {
-        IsBasement = !IsBasement;
-
         if (IsBasement)
         {
             basement.SetActive(false);
@@ -33,6 +31,7 @@ public class FloorManager : MonoBehaviour
             basement.SetActive(true);
             floor.SetActive(false);
         }
+        IsBasement = !IsBasement;
     }
 
 }

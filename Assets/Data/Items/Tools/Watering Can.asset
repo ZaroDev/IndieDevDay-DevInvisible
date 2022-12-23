@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ItemType>k__BackingField: 2
   <IsStackable>k__BackingField: 0
-  <MaxStackSize>k__BackingField: 30
+  <MaxStackSize>k__BackingField: 1
+  <Uses>k__BackingField: 50
   <Name>k__BackingField: Watering Can
-  <Description>k__BackingField: Used to water the plants
-  <ItemImage>k__BackingField: {fileID: 21300000, guid: f09eae8c0ea04254b90c5386a034a225, type: 3}
-  <prefab>k__BackingField: {fileID: 0}
+  <Description>k__BackingField: 
+  <ItemImage>k__BackingField: {fileID: 21300000, guid: c2b89e0987115f744920f34b058e5e8e, type: 3}
+  <ItemPrefab>k__BackingField: {fileID: 7892307304042388180, guid: e268b2793d642604da10b7080fafd895, type: 3}
+  <ActionSFX>k__BackingField: {fileID: 0}

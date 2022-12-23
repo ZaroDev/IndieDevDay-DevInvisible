@@ -18,9 +18,9 @@ namespace Inventory.UI
             mainCam = Camera.main;
             item = GetComponentInChildren<InventoryItemUI>();
         }
-        public void SetData(Sprite sprite, int quantity)
+        public void SetData(Sprite sprite, int quantity, int itemUses)
         {
-            item.SetData(sprite, quantity);
+            item.SetData(sprite, quantity, itemUses);
         }
         void Update()
         {

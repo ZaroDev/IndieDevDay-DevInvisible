@@ -63,7 +63,17 @@ public class Plot : MonoBehaviour, IInteractable
                     Watered = true;
                 }
                 break;
+            case ItemType.Sickle:
+                {
+                    if (!plant.Harvest())
+                    {
+                        plant = null;
+                    }
+
+                }
+                break;
         }
+        PlotAnimator.SetBool("Watered", Watered);
         return ret;
     }
 }
