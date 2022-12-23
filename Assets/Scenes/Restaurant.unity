@@ -3028,6 +3028,50 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &691800420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 691800421}
+  - component: {fileID: 691800422}
+  m_Layer: 0
+  m_Name: StaminaControler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &691800421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691800420}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1053371759}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &691800422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691800420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2947a3652eabe45a554c2ba19d79e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &722334577
 GameObject:
   m_ObjectHideFlags: 3
@@ -4752,6 +4796,7 @@ Transform:
   m_Children:
   - {fileID: 53974241}
   - {fileID: 1470524698}
+  - {fileID: 691800421}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15542,19 +15587,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4210910577592467679, guid: d4ddb653002ed4a4697f135f853dab6a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4210910577592467679, guid: d4ddb653002ed4a4697f135f853dab6a, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4210910577592467679, guid: d4ddb653002ed4a4697f135f853dab6a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 42.4209
       objectReference: {fileID: 0}
     - target: {fileID: 4210910577592467679, guid: d4ddb653002ed4a4697f135f853dab6a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -44.3319
       objectReference: {fileID: 0}
     - target: {fileID: 5744988059284638965, guid: d4ddb653002ed4a4697f135f853dab6a, type: 3}
       propertyPath: m_AnchorMax.y
