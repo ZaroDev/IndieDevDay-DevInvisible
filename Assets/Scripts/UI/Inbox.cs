@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class InboxMessage : MonoBehaviour
+public class Inbox : MonoBehaviour
 {
     public GameObject MessageInbox;
 
@@ -16,7 +16,7 @@ public class InboxMessage : MonoBehaviour
         //message = prefab.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
         for (int i = 0; i < 2; i++)
 
-            CreateMessage("hola");
+            CreateMessage("patimicola");
     }
 
     public void CreateMessage(string msg)
@@ -24,6 +24,7 @@ public class InboxMessage : MonoBehaviour
         GameObject g;
         g = Instantiate(prefab, MessageInbox.transform);
         
+        //g.transform.GetChild(2).GetComponent<TMP_Text>().text = msg;
     }
 
     // Update is called once per frame
