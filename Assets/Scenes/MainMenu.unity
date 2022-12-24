@@ -315,7 +315,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: EXAMPLE TEXT
+  m_text: The drug guy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d8875f418b63f304e949b3bdcffe3426, type: 2}
   m_sharedMaterial: {fileID: 4841247033366768542, guid: d8875f418b63f304e949b3bdcffe3426, type: 2}
