@@ -25,5 +25,6 @@ public class StaminaBarUI : MonoBehaviour
     {
         slider.value = amount / StaminaController.MaxStamina;
     }
+    
 
 }
