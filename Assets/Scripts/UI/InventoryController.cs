@@ -13,7 +13,6 @@ namespace Inventory
         private InventoryUI inventoryUI;
         [SerializeField]
         public InventorySO inventoryData;
-        public List<InventoryItem> initialItems = new List<InventoryItem>();
         public InventoryItem currentItem;
         public int currentIndex = 0;
         public void Start()
@@ -50,14 +49,17 @@ namespace Inventory
 
         private void PrepareInventoryData()
         {
-            inventoryData.Initalize();
-            inventoryData.OnInventoryUpdated += UpdateInventoryUI;
-            foreach (InventoryItem item in initialItems)
+            foreach (var item in inventoryData.GetCurrentInventoryState())
             {
-                if (item.IsEmpty)
-                    continue;
-                inventoryData.AddItem(item);
+                inventoryUI.UpdateData(
+                    item.Key,
+                    item.Value.item.ItemImage,
+                    item.Value.quantity,
+                    item.Value.uses
+                );
+
             }
+            inventoryData.OnInventoryUpdated += UpdateInventoryUI;
         }
 
         private void UpdateInventoryUI(Dictionary<int, InventoryItem> inventoryState)

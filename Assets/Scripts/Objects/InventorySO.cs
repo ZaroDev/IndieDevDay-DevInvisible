@@ -16,14 +16,6 @@ namespace Inventory.Model
         [field: SerializeField]
         public int Size { get; private set; } = 10;
         public event Action<Dictionary<int, InventoryItem>> OnInventoryUpdated;
-        public void Initalize()
-        {
-            inventoryItems = new List<InventoryItem>();
-            for (int i = 0; i < Size; i++)
-            {
-                inventoryItems.Add(InventoryItem.GetEmptyItem());
-            }
-        }
         public int AddItem(ItemSO item, int quantity, int uses)
         {
             if (!item.IsStackable)

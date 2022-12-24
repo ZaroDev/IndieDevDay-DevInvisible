@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7784012053449687354}
   - component: {fileID: 7784012053449687353}
   - component: {fileID: 7784012053449687352}
-  - component: {fileID: 4407882781917154859}
   - component: {fileID: 163839835166403106}
   - component: {fileID: 1961388023541810420}
+  - component: {fileID: 3695993593443436097}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -98,26 +98,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.79909706, y: 0.805006}
   m_EdgeRadius: 0
---- !u!114 &4407882781917154859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7784012053449687300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdfd59d2bba45424fae0abaef5c3ea01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventoryUI: {fileID: 0}
-  inventoryData: {fileID: 11400000, guid: c901e703584aa6f48a9b9db9db1c06ca, type: 2}
-  initialItems: []
-  currentItem:
-    quantity: 0
-    uses: 0
-    item: {fileID: 0}
-  currentIndex: 0
 --- !u!114 &163839835166403106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +129,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invetoryData: {fileID: 11400000, guid: c901e703584aa6f48a9b9db9db1c06ca, type: 2}
+--- !u!114 &3695993593443436097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7784012053449687300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfd59d2bba45424fae0abaef5c3ea01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryUI: {fileID: 0}
+  inventoryData: {fileID: 11400000, guid: c901e703584aa6f48a9b9db9db1c06ca, type: 2}
+  initialItems: []
+  currentItem:
+    quantity: 0
+    uses: 0
+    item: {fileID: 0}
+  currentIndex: 0
 --- !u!1 &7784012053692832999
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +221,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1507082817
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 342044752, guid: 0a083af6e46af5c43b09618f2d3e1475, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

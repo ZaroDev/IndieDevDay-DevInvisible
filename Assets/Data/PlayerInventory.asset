@@ -12,6 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ad986e55b936b47bd75654722ee58d, type: 3}
   m_Name: PlayerInventory
   m_EditorClassIdentifier: 
-  inventoryItems: []
+  inventoryItems:
+  - quantity: 1
+    uses: 0
+    item: {fileID: 11400000, guid: d37a02be2cee04e42a6396724e894742, type: 2}
+  - quantity: 1
+    uses: 0
+    item: {fileID: 11400000, guid: 8ddad08475356c64aa4c5ac627546ab7, type: 2}
+  - quantity: 2
+    uses: 50
+    item: {fileID: 11400000, guid: 88bdab0d1fbf44a488f0811d677d9536, type: 2}
+  - quantity: 20
+    uses: 0
+    item: {fileID: 11400000, guid: a59b5343817301d448b13f481468e14a, type: 2}
+  - quantity: 0
+    uses: 0
+    item: {fileID: 0}
+  - quantity: 0
+    uses: 0
+    item: {fileID: 0}
+  - quantity: 0
+    uses: 0
+    item: {fileID: 0}
+  - quantity: 0
+    uses: 0
+    item: {fileID: 0}
+  - quantity: 0
+    uses: 0
+    item: {fileID: 0}
+  - quantity: 0
+    uses: 0
+    item: {fileID: 0}
   hotBarItems: []
   <Size>k__BackingField: 10
