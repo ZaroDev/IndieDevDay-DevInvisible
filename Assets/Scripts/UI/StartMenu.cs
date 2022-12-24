@@ -23,7 +23,7 @@ public class StartMenu : MonoBehaviour
         LeanTween.scale(fader, Vector3.zero, 0);
         LeanTween.scale(fader, new Vector3(1f, 1f, 1f), 0.5f).setEase(LeanTweenType.easeInCubic).setOnComplete(() =>
         {
-            SceneManager.LoadScene("Restaurant");
+            SceneManager.LoadScene("Street");
         });
     }
 
