@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EnterRestaurant
   - LeaveRestaurant
+  - Store
   layers:
   - Default
   - TransparentFX
