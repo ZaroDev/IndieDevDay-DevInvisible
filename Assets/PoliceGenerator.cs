@@ -29,7 +29,12 @@ public class PoliceGenerator : MonoBehaviour
              
              
             lastday = day;
-            Instantiate(Polfa, pos, Quaternion.identity);
+            if(day>3)
+            {
+                Instantiate(Polfa, pos, Quaternion.identity);
+                Instantiate(Polfa, new Vector3(pos.x+1,pos.y-2,pos.z), Quaternion.identity);
+            }
+            else Instantiate(Polfa, pos, Quaternion.identity);
         }
     }
 
