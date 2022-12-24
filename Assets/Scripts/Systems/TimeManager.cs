@@ -143,7 +143,7 @@ public class TimeManager : GameSystem
     public void Sleep()
     {
         days++;
-        StaminaController.RestoreStamina();
+        //StaminaController.RestoreStamina();
         hours = WakeUpHour;
         mins = WakeUpMin;
     }

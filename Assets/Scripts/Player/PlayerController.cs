@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private Animator animator;
     public float moveSpeed = 5f;
+    private float stamina = 1000f;
     Vector2 input;
     Rigidbody2D rb;
     bool m_FacingRight = true;
@@ -19,6 +20,27 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (stamina > 0)
+            {
+                StaminaController.Use(2f);
+                moveSpeed = 10;
+                stamina--;
+
+            }
+            else
+            {
+                moveSpeed = 5;
+            }
+
+        }
+        else
+        {
+            if(stamina<1000)    stamina+=0.25f;
+            moveSpeed = 5;
+            StaminaController.RestoreStamina(0.25f);
+        }
         HandleInput();
         HandleAnimations();
     }
@@ -48,10 +70,13 @@ public class PlayerController : MonoBehaviour
     {
         input.x = Input.GetAxis("Horizontal");
         input.y = Input.GetAxis("Vertical");
+
+
     }
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + input * moveSpeed * Time.fixedDeltaTime);
+
     }
 
 
