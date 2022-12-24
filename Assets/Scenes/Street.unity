@@ -28963,7 +28963,6 @@ GameObject:
   - component: {fileID: 506680633}
   - component: {fileID: 506680632}
   - component: {fileID: 506680631}
-  - component: {fileID: 506680630}
   - component: {fileID: 506680629}
   m_Layer: 0
   m_Name: StoreTrigger (1)
@@ -28985,19 +28984,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StoreUIPanel: {fileID: 975974054}
---- !u!114 &506680630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 506680628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4b81b90bacfd4d45ba91210bce70a91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StoreUIPanel: {fileID: 0}
 --- !u!61 &506680631
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30249,7 +30235,6 @@ GameObject:
   - component: {fileID: 968832474}
   - component: {fileID: 968832473}
   - component: {fileID: 968832472}
-  - component: {fileID: 968832471}
   - component: {fileID: 968832470}
   m_Layer: 0
   m_Name: StoreTrigger (2)
@@ -30271,19 +30256,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StoreUIPanel: {fileID: 975974054}
---- !u!114 &968832471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 968832469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4b81b90bacfd4d45ba91210bce70a91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StoreUIPanel: {fileID: 0}
 --- !u!61 &968832472
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31094,7 +31066,6 @@ GameObject:
   - component: {fileID: 1719930420}
   - component: {fileID: 1719930419}
   - component: {fileID: 1719930418}
-  - component: {fileID: 1719930417}
   - component: {fileID: 1719930421}
   m_Layer: 0
   m_Name: StoreTrigger
@@ -31103,19 +31074,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1719930417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719930416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4b81b90bacfd4d45ba91210bce70a91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StoreUIPanel: {fileID: 0}
 --- !u!61 &1719930418
 BoxCollider2D:
   m_ObjectHideFlags: 0
