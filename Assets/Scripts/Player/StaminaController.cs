@@ -20,7 +20,7 @@ public class StaminaController : GameSystem
     }
     public static void RestoreStamina(float amount)
     {
-        Stamina += amount;
+        if(Stamina<1000)    Stamina += amount;
         OnStaminaRestore?.Invoke(Stamina);
     }
 

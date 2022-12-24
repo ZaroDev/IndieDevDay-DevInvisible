@@ -90,5 +90,9 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene("Street");
         }
+        else if (collision.tag == "Police")
+        {
+            SceneManager.LoadScene("You loose");
+        }
     }
 }

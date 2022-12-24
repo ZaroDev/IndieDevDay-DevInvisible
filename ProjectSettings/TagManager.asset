@@ -7,6 +7,7 @@ TagManager:
   - EnterRestaurant
   - LeaveRestaurant
   - Store
+  - Police
   layers:
   - Default
   - TransparentFX
