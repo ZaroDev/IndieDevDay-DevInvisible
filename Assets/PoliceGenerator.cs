@@ -5,6 +5,7 @@ using UnityEngine;
 public class PoliceGenerator : MonoBehaviour
 {
     public GameObject Polfa;
+    public GameObject target;
     public TimeManager timemanager;
     int lastday;
     int day;
@@ -20,11 +21,24 @@ public class PoliceGenerator : MonoBehaviour
     void Update()
     {
         day = timemanager.days;
+        Vector3 center = target.transform.position;
 
         if(day != lastday)
         {
+            Vector3 pos = RandomCircle(center, 12.0f);
+             
+             
             lastday = day;
-            Instantiate(Polfa, new Vector3(0,0,0), Quaternion.identity);
+            Instantiate(Polfa, pos, Quaternion.identity);
         }
     }
+
+    Vector3 RandomCircle ( Vector3 center ,   float radius  ){
+         float ang = Random.value * 360;
+         Vector3 pos;
+         pos.x = center.x + radius * Mathf.Sin(ang * Mathf.Deg2Rad);
+         pos.y = center.y + radius * Mathf.Cos(ang * Mathf.Deg2Rad);
+         pos.z = center.z;
+         return pos;
+     }
 }
