@@ -24,6 +24,7 @@ public class Polfa : MonoBehaviour
         direction.Normalize();
         movement = direction;
     }
+
     private void FixedUpdate()
     {
         moveCharacter(movement);
