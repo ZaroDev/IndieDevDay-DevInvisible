@@ -49,6 +49,7 @@ namespace Inventory
 
         private void PrepareInventoryData()
         {
+            inventoryData.OnInventoryUpdated += UpdateInventoryUI;
             foreach (var item in inventoryData.GetCurrentInventoryState())
             {
                 inventoryUI.UpdateData(
@@ -57,9 +58,7 @@ namespace Inventory
                     item.Value.quantity,
                     item.Value.uses
                 );
-
             }
-            inventoryData.OnInventoryUpdated += UpdateInventoryUI;
         }
 
         private void UpdateInventoryUI(Dictionary<int, InventoryItem> inventoryState)
@@ -67,7 +66,7 @@ namespace Inventory
             inventoryUI.ResetAllItems();
             foreach (var item in inventoryState)
             {
-
+                Debug.Log("Item updated");
                 inventoryUI.UpdateData(
                     item.Key,
                     item.Value.item.ItemImage,

@@ -120,6 +120,7 @@ namespace Inventory.Model
         private void InformAboutChange()
         {
             OnInventoryUpdated?.Invoke(GetCurrentInventoryState());
+            Debug.Log("Inventory update");
         }
 
         public void RemoveItem(int itemIndex, int amount)
@@ -143,6 +144,8 @@ namespace Inventory.Model
                 RemoveItem(itemIndex, 1);
             else
                 UseEquipableItem(itemIndex, 1);
+
+            InformAboutChange();
         }
         public void UseEquipableItem(int itemIndex, int amount)
         {

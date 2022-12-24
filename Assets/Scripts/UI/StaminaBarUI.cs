@@ -5,38 +5,25 @@ using UnityEngine.UI;
 
 public class StaminaBarUI : MonoBehaviour
 {
-    public Slider StaminaBar;
+    public Slider slider;
 
-    private int maxStamina = 100;
-    private int currentStamina;
-
-    public static StaminaBarUI instance;
-
-    private void Awake()
+    void OnEnable()
     {
-        instance = this;
+        StaminaController.OnStaminaUse += UpdateBar;
+        StaminaController.OnStaminaRestore += UpdateBar;
     }
-    
-    // Start is called before the first frame update
+    void OnDisable()
+    {
+        StaminaController.OnStaminaUse -= UpdateBar;
+        StaminaController.OnStaminaRestore -= UpdateBar;
+    }
     void Start()
     {
-        currentStamina = maxStamina;
-        StaminaBar.maxValue = maxStamina;
-        StaminaBar.value = maxStamina;
+        slider.value = StaminaController.Stamina / StaminaController.MaxStamina;
     }
-
-    public void UseStamina(int stamina)
+    public void UpdateBar(float amount)
     {
-        if((currentStamina - stamina) >= 0 )
-        {
-            currentStamina -= stamina;
-            StaminaBar.value = currentStamina;
-        }
-        
-
+        slider.value = amount / StaminaController.MaxStamina;
     }
-    
-    
-    // Update is called once per frame
-    
+
 }
