@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private Animator animator;
     public float moveSpeed = 5f;
-    private float stamina = 1000f;
+    private float stamina = 700f;
     Vector2 input;
     Rigidbody2D rb;
     bool m_FacingRight = true;
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if(stamina<1000)    stamina+=0.25f;
+            if (stamina < 700) stamina += 0.25f;
             moveSpeed = 5;
             StaminaController.RestoreStamina(0.25f);
         }
